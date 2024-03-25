@@ -4,21 +4,22 @@ from src.GemstonePricePrediction.components.data_transformation import DataTrans
 
 from src.GemstonePricePrediction.components.model_trainer import ModelTrainer
 
-# from src.DimondPricePrediction.components.model_evaluation import ModelEvaluation
+from src.GemstonePricePrediction.components.model_evalution import ModelEvaluation
 
 
 import os
 import sys
+import pandas as pd
 from src.GemstonePricePrediction.logger import logging
 from src.GemstonePricePrediction.exception import customexception
-import pandas as pd
+
 class TrainingPipeline:
     def start_data_ingestion(self):
         try:
             data_ingestion=DataIngestion()
             train_data_path,test_data_path=data_ingestion.initiate_data_ingestion()
             return train_data_path,test_data_path
-        except Exception as e:
+        except Exception as e: 
             raise customexception(e,sys)
         
     def start_data_transformation(self,train_data_path,test_data_path):
@@ -44,3 +45,6 @@ class TrainingPipeline:
             self.start_model_training(train_arr,test_arr)
         except Exception as e:
             raise customexception(e,sys)  
+        
+obj = TrainingPipeline()
+obj.start_trainig()
