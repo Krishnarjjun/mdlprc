@@ -74,6 +74,6 @@ class CustomData:
                 logging.info('Exception Occured in prediction pipeline')
                 raise customexception(e,sys)
             
-obj = PredictPipeline()
-df_obj = CustomData(1.52,62.0,58.0,8.06,8.12,5.05,'Premium','F','VS2')
-obj.predict( df_obj.get_data_as_dataframe())
+# obj = PredictPipeline()
+# df_obj = CustomData(1.52,62.0,58.0,8.06,8.12,5.05,'Premium','F','VS2')
+# obj.predict( df_obj.get_data_as_dataframe())
